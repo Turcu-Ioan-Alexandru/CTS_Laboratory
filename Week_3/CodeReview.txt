@@ -1,0 +1,7 @@
+Code Review
+
+Phase 1 - Naming conventions
+- rename Class1
+- rename Calculeaza and use lowerCamelCase
+- rename t, s, perioada
+- remove hard-coded numbers
