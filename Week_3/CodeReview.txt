@@ -5,3 +5,7 @@ Phase 1 - Naming conventions
 - rename Calculeaza and use lowerCamelCase
 - rename t, s, perioada
 - remove hard-coded numbers
+
+Phase 2 - KISS & Single responsability 
+- simplify the expressions
+- a function should do only 1 thing 
