@@ -1,13 +1,18 @@
 package ro.ase.csie.cts.g1094.refactor.phase1;
 
 import ro.ase.csie.acs.cts.g1094.phase3.services.Marketing2021Strategy;
+import ro.ase.csie.acs.cts.g1094.phase3.services.ValidatorService;
 import ro.ase.csie.acs.cts.refactor.exceptions.InvalidAgeException;
 import ro.ase.csie.acs.cts.refactor.exceptions.InvalidPriceException;
 import ro.ase.csie.cts.g1094.refactor.phase3.MarketingServiceInterface;
 
 public class Product {
 	
-	MarketingServiceInterface mkService = new Marketing2021Strategy();
+	MarketingServiceInterface mkService = null;
+	ValidatorService validator = null;
+	public Product(MarketingServiceInterface service, ValidatorService serv) {
+		
+	}
 	public static float getDiscountValue(float price, float discount) {
 		return discount * price;
 	}
