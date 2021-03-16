@@ -6,6 +6,10 @@ Phase 1 - Naming conventions
 - rename t, s, perioada
 - remove hard-coded numbers
 
-Phase 2 - KISS & Single responsability 
+Phase 2 - KISS & Single responsibility 
 - simplify the expressions
 - a function should do only 1 thing 
+
+Phase 3 - Single Responsibility & Dependency Inversion (DIP)
+- the static final values may change when the marketing strategy will change
+- getFidelityDiscount() may change when the marketing strategy will change
