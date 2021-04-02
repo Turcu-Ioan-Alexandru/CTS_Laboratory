@@ -1,0 +1,4 @@
+Guidelines: 
+- It is better to use an enum than multiple static final ints
+- You should name most of your variables according to the Lower Camel Case naming convention (avoid using _ unless the variable is a static one)
+-
