@@ -1,4 +1,7 @@
 Guidelines: 
 - It is better to use an enum than multiple static final ints
-- You should name most of your variables according to the Lower Camel Case naming convention (avoid using _ unless the variable is a static one)
--
+- You should name most of your variables according to the Lower Camel Case naming convention 
+(avoid using _ unless the variable is a static one). The same thing applies to functions
+- Avoid using tabs in the same line of code, the spacing makes the lines hard to read
+- Don't declare variables that you are not going to use (ex: int temp = 365, int vb = 10) 
+- Override the existing toString() function rather than create a new one yourself

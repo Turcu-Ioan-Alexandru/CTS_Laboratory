@@ -2,8 +2,8 @@ package assignment;
 
 public class Account {
 	public double loanValue, rate;	
-	public int	daysActive, accountType;
-	public static final int	STANDARD=0,BUDGET=1,PREMIUM=2,SUPER_PREMIUM=3;
+	public int	daysActive;
+	public AccountType accountType;
 	
 	public double loan() {
 		System.out.println("The loan value is " + this.loanValue);
@@ -21,7 +21,7 @@ public class Account {
 	}
 	
 	public void setValue(double value) throws Exception {
-		if(value<0)
+		if(value < 0)
 			throw new Exception();
 		else
 		{
@@ -29,39 +29,35 @@ public class Account {
 		}
 	}
 	
-	public String to_string() {
-		return "Loan: "+this.loanValue+"; rate: "+this.rate+"; days active:"+daysActive+"; Type: "+accountType+";";
-	}
-	
 	public void print() {
-		int vb = 10;
 		System.out.println("This is an account");
 	}
 
-	public static double calculate(Account[] 	accounts)
-	{
-	double totalFee=0.0;
+	@Override
+	public String toString() {
+		return "Account [loanValue=" + loanValue + ", rate=" + rate + ", daysActive=" + daysActive + ", accountType="
+				+ accountType + "]";
+	}
+
+	public static double calculate(Account[] accounts) {
+	double totalFee = 0.0;
 	Account	account;
-	int temp = 365;
-	for	(int	i=0;i<accounts.length;i++)	{
-	account=accounts[i];
-	if(account.accountType==Account.PREMIUM||account.accountType==Account.SUPER_PREMIUM)	
-	totalFee+=.0125	*	(	//	1.25%	broker's	fee
+	for	(int i = 0; i < accounts.length; i++) {
+	account = accounts[i];
+	if(account.accountType==AccountType.PREMIUM || account.accountType==AccountType.SUPER_PREMIUM)	
+	totalFee+=.0125	* (	//	1.25%	broker's	fee
 			account.loanValue*Math.pow(account.rate,(account.daysActive/365)) - account.loanValue);	//	interest-principal
 	}
 	return	totalFee;
 	}
 
-	public Account(double value, double rate, int account_Type) throws Exception {
-		if(value<0)
+	public Account(double value, double rate, AccountType accountType) throws Exception {
+		if(value < 0)
 			throw new Exception();
-		else
-		{
+		else {
 			loanValue = value;
 		}
 		this.rate = rate;
-		this.accountType = account_Type;
+		this.accountType = accountType;
 	}
-	
-	
 }
