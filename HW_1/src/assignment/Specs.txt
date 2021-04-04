@@ -5,3 +5,4 @@ Guidelines:
 - Avoid using tabs in the same line of code, the spacing makes the lines hard to read
 - Don't declare variables that you are not going to use (ex: int temp = 365, int vb = 10) 
 - Override the existing toString() function rather than create a new one yourself
+- Create your own exception classes
