@@ -26,6 +26,10 @@ public class Account implements RateInterface{
 		return loanValue*rate;
 	}
 	
+	public double getMonthlyRate() {
+		return this.calculateMonthlyRate();
+	}
+	
 	public void setValue(double value) throws AmountException {
 		if(value < 0)
 			throw new AmountException();
