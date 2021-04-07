@@ -53,7 +53,7 @@ public class Account implements RateInterface{
 	account = accounts[i];
 	if(account.accountType==AccountType.PREMIUM || account.accountType==AccountType.SUPER_PREMIUM)	
 	totalFee+= brokerFee / 100 * (	
-			account.loanValue*Math.pow(account.rate,(account.daysActive/365)) - account.loanValue);	//	interest-principal
+			account.loanValue*Math.pow(account.rate,(account.daysActive/365)) - account.loanValue);	
 	}
 	return	totalFee;
 	}
