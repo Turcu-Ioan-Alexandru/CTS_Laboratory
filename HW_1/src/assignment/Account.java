@@ -22,7 +22,7 @@ public class Account implements RateInterface{
 	}
 	
 	//must have method - the lead has requested it in all classes
-	public double getMonthlyRate() {
+	public double calculateMonthlyRate() {
 		return loanValue*rate;
 	}
 	
