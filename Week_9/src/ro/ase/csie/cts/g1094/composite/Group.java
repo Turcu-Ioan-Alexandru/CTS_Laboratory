@@ -45,7 +45,6 @@ public class Group extends AbstractNode{
 
 	@Override
 	public AbstractNode getNode(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
