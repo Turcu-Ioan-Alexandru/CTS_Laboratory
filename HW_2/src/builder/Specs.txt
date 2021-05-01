@@ -1,0 +1,2 @@
+Desktop ERP Solution
+Solving the problem of the lengthy constructor of the "Document" class 
