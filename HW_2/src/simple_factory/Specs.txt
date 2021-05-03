@@ -1,2 +1,6 @@
 ERP Desktop Solution
-- We will use the Simple Factory patter in order to simplify the process of creating a new partner
+We will use the Simple Factory patter in order to simplify the process of creating a new partner
+Advantages:
+- Easily modifiable
+Disadvantages: 
+- 

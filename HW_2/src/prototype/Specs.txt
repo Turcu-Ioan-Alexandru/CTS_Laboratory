@@ -1,2 +1,8 @@
 Desktop ERP Solution
-We want to make the process of creating document copies easier and less time consuming
+We want to make the process of creating document copies easier and less resource consuming, and easy to modify if new requirements appear
+Advantages:
+- the model provides flexibility
+- new requirements can be easily implemented
+Disadvantages: 
+- there may bee to much variation in requirements
+- the system could become very complex

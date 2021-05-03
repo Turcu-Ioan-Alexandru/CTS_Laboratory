@@ -1,2 +1,8 @@
 Desktop ERP Solution
 Solving the problem of the lengthy constructor of the "Document" class 
+Advantages: 
+- removes the need to pass "null" for optional parameters in constructors
+- objects are always instantiated in a complete state
+Disadvantages: 
+- the code size will increase considerably
+- 

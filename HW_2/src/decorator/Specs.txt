@@ -1,0 +1,9 @@
+Desktop ERP Solution
+We use the decorator pattern to implement new functionalities of the Partner class
+Advantages: 
+- highly flexible
+- expansion of classes without inheritance
+Disadvantages: 
+- generates a high number of objects
+- highly complex 
+- difficult to debug
