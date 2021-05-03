@@ -1,15 +1,15 @@
 package prototype;
 
 public class Document implements Cloneable{
-	 protected String documentDate;
-	 protected String partnerCode;
-	 protected int internalNumber;
-	 protected double totalValue;
-	 protected int vat;
-	 protected double noVatValue;
-	 protected int discount;
+	 public String documentDate;
+	 public String partnerCode;
+	 public int internalNumber;
+	 public double totalValue;
+	 public int vat;
+	 public double noVatValue;
+	 public int discount;
 	 
-	 private Document() {
+	 public Document() {
 		 
 	 }
 	 

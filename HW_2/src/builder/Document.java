@@ -9,7 +9,65 @@ public class Document {
 	 protected double noVatValue;
 	 protected int discount;
 	 
-	 private Document() {
+	 
+	 
+	 public String getDocumentDate() {
+		return documentDate;
+	}
+
+	public void setDocumentDate(String documentDate) {
+		this.documentDate = documentDate;
+	}
+
+	public String getPartnerCode() {
+		return partnerCode;
+	}
+
+	public void setPartnerCode(String partnerCode) {
+		this.partnerCode = partnerCode;
+	}
+
+	public int getInternalNumber() {
+		return internalNumber;
+	}
+
+	public void setInternalNumber(int internalNumber) {
+		this.internalNumber = internalNumber;
+	}
+
+	public double getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
+	}
+
+	public int getVat() {
+		return vat;
+	}
+
+	public void setVat(int vat) {
+		this.vat = vat;
+	}
+
+	public double getNoVatValue() {
+		return noVatValue;
+	}
+
+	public void setNoVatValue(double noVatValue) {
+		this.noVatValue = noVatValue;
+	}
+
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+	private Document() {
 		 
 	 }
 	 
@@ -57,6 +115,8 @@ public class Document {
 			public Document build() {
 				return this.doc;
 			}
+			
+			
 	 }
 }
 
