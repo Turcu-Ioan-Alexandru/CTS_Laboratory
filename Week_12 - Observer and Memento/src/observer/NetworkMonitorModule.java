@@ -6,4 +6,5 @@ import java.util.List;
 public class NetworkMonitorModule {
 
 	List<NetworkStatusHandlerInterface> modules = new ArrayList<>();
-}
+//comment
+	}
