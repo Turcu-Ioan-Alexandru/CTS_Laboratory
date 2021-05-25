@@ -51,9 +51,7 @@ public class TestStudent {
 	@Test
 	public void testSetNameRightValue() throws WrongNameExceptions {
 		String newName = "Alice";
-		
 		student.setName(newName);
-		
 		assertEquals("Testing with a right name", newName, student.getName());
 	}
 
