@@ -1,4 +1,4 @@
-package homework.singleton;
+package ro.ase.csie.cts.homework3.singleton;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 class TestSingleton {
 
-	Server server1 = null;
-	Server server2 = null;
+	ServerSingleton server1 = null;
+	ServerSingleton server2 = null;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -41,14 +41,14 @@ class TestSingleton {
 	
 	@Test
 	public void TestSingleton() {
-		server1 = Server.getInstance();
-		server2 = Server.getInstance();
+		server1 = ServerSingleton.getInstance();
+		server2 = ServerSingleton.getInstance();
 		Assert.assertEquals("These 2 objects are the same", server1, server2);
 	}
 	
 	@Test
 	public void TestDisonnect() {
-		server1 = Server.getInstance();
+		server1 = ServerSingleton.getInstance();
 		server1.disconnect();
 		assertEquals(server1.disconnect(), true);
 	}

@@ -1,11 +1,11 @@
-package homework.prototype;
+package ro.ase.csie.cts.homework3.prototype;
 
-import homework.server.ServerInterface;
-import homework.singleton.Server;
+import ro.ase.csie.cts.homework3.ServerInterface;
+import ro.ase.csie.cts.homework3.singleton.ServerSingleton;
 
 public class ServerPrototype implements ServerInterface, Cloneable{
 
-	private static Server server;
+	private static ServerSingleton server;
 	
 	private String ipAddress;
 	private int port;

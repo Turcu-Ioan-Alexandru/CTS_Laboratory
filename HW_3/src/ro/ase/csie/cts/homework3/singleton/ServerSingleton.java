@@ -1,14 +1,10 @@
-package homework.singleton;
+package ro.ase.csie.cts.homework3.singleton;
 
-import homework.server.ServerInterface;
+import ro.ase.csie.cts.homework3.ServerInterface;
 
-/**
- * @author Alex
- *
- */
-public class Server implements ServerInterface{
+public class ServerSingleton implements ServerInterface{
 
-	private static Server server;
+	private static ServerSingleton server;
 	
 	private String ipAddress;
 	private int port;
@@ -16,7 +12,7 @@ public class Server implements ServerInterface{
 	private boolean connect;
 	private boolean disconnect;
 	
-	private Server(String ipAddress, int port, int maxConnections, boolean connect, boolean disconnect) {
+	private ServerSingleton(String ipAddress, int port, int maxConnections, boolean connect, boolean disconnect) {
 		this.ipAddress = ipAddress;
 		this.port = port;
 		this.maxConnections = maxConnections;
@@ -53,14 +49,14 @@ public class Server implements ServerInterface{
 		return this.disconnect;
 	}
 	
-	public static Server getInstance() {
+	public static ServerSingleton getInstance() {
 		if(server == null) {
 			String address = "placeholer";
 			int port = (int) Math.random();
 			int maxConnect = 100;
 			boolean connected = true;
 			boolean disconnect = false;
-			server = new Server(address, port, maxConnect, connected, disconnect);
+			server = new ServerSingleton(address, port, maxConnect, connected, disconnect);
 		}
 		return server;
 	}

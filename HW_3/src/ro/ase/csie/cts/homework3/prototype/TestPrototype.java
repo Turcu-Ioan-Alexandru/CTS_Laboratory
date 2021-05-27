@@ -1,4 +1,4 @@
-package homework.prototype;
+package ro.ase.csie.cts.homework3.prototype;
 
 import static org.junit.jupiter.api.Assertions.*;
 

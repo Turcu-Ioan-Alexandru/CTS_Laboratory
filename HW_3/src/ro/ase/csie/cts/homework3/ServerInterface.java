@@ -1,4 +1,4 @@
-package homework.server;
+package ro.ase.csie.cts.homework3;
 
 public interface ServerInterface {
 	public String getIpAddress();
