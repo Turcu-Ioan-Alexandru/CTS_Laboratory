@@ -4,11 +4,11 @@ import ro.ase.csie.cts.homework3.ServerInterface;
 
 public class Server implements ServerInterface{
 
-	protected String ipAddress;
-	protected int port;
-	protected int maxConnections;
-	protected boolean connected;
-	protected boolean disconnected;
+	public String ipAddress;
+	public int port;
+	public int maxConnections;
+	public boolean hasConnection;
+	public boolean isDisconnected;
 	
 	private Server( ) {
 		
@@ -19,8 +19,8 @@ public class Server implements ServerInterface{
 		this.ipAddress = ipAddress;
 		this.port = port;
 		this.maxConnections = maxConnections;
-		this.connected = connect;
-		this.disconnected = disconnect;
+		this.hasConnection = connect;
+		this.isDisconnected = disconnect;
 	}
 
 	@Override
@@ -40,16 +40,16 @@ public class Server implements ServerInterface{
 
 	@Override
 	public boolean connect() {
-		this.connected = true;
-		this.disconnected = false;
-		return this.connected;
+		this.hasConnection = true;
+		this.isDisconnected = false;
+		return this.hasConnection;
 	}
 
 	@Override
 	public boolean disconnect() {
-		this.connected = false;
-		this.disconnected = true;
-		return this.disconnected;
+		this.hasConnection = false;
+		this.isDisconnected = true;
+		return this.isDisconnected;
 	}
 	
 	public static class ServerBuilder {
@@ -68,12 +68,12 @@ public class Server implements ServerInterface{
 		}
 		
 		public ServerBuilder addConnected(boolean connected) {
-			server.connected = connected;
+			server.hasConnection = connected;
 			return this;
 		}
 		
 		public ServerBuilder addDisconnected(boolean disconnected) {
-			server.disconnected = disconnected;
+			server.isDisconnected = disconnected;
 			return this;
 		}
 		

@@ -10,8 +10,8 @@ public class ServerPrototype implements ServerInterface, Cloneable{
 	private String ipAddress;
 	private int port;
 	private int maxConnections;
-	private boolean connectStatus;
-	private boolean disconnect;
+	private boolean hasConnection;
+	private boolean isDisconnected;
 	
 	@Override
 	public String getIpAddress() {
@@ -31,15 +31,15 @@ public class ServerPrototype implements ServerInterface, Cloneable{
 	@Override
 	public boolean connect() {
 		this.setConnectStatus(true);
-		this.disconnect = false;
+		this.isDisconnected = false;
 		return this.getConnectStatus();
 	}
 
 	@Override
 	public boolean disconnect() {
 		this.setConnectStatus(false);
-		this.disconnect = true;
-		return this.disconnect;
+		this.isDisconnected = true;
+		return this.isDisconnected;
 	}
 	
 	@Override
@@ -49,7 +49,7 @@ public class ServerPrototype implements ServerInterface, Cloneable{
 		prototype.port = this.port;
 		prototype.maxConnections = this.maxConnections;
 		prototype.setConnectStatus(this.getConnectStatus());
-		prototype.disconnect = this.disconnect;
+		prototype.isDisconnected = this.isDisconnected;
 		
 		return prototype;
 	}
@@ -62,15 +62,15 @@ public class ServerPrototype implements ServerInterface, Cloneable{
 		this.ipAddress = ipAddress;
 		this.port = port;
 		this.maxConnections = maxConnections;
-		this.connectStatus = connect;
-		this.disconnect = disconnect;
+		this.hasConnection = connect;
+		this.isDisconnected = disconnect;
 	}
 
 	public boolean getConnectStatus() {
-		return connectStatus;
+		return hasConnection;
 	}
 
 	public void setConnectStatus(boolean connectStatus) {
-		this.connectStatus = connectStatus;
+		this.hasConnection = connectStatus;
 	}
 }

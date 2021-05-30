@@ -1,4 +1,4 @@
-package ro.ase.csie.cts.homework3.builder;
+package ro.ase.csie.cts.homework3.testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,6 +8,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ro.ase.csie.cts.homework3.builder.Server;
+import ro.ase.csie.cts.homework3.builder.Server.ServerBuilder;
 
 class TestBuilder {
 
@@ -37,16 +40,16 @@ class TestBuilder {
 	public void TestDisconnect() {
 		Server server1 = new Server.ServerBuilder("123.11.413", 501).addMaxConnections(50).addConnected(true).addDisconnected(false).build();
 		server1.disconnect();
-		assertEquals(server1.connected, false);
-		assertEquals(server1.disconnected, true);
+		assertEquals(server1.hasConnection, false);
+		assertEquals(server1.isDisconnected, true);
 	}
 	
 	@Test
 	public void TestBuild() {
 		Server server2 = new Server.ServerBuilder("123.11.413", 501).addMaxConnections(50).addConnected(true).addDisconnected(false).build();
 		assertEquals(server2.maxConnections, 50);
-		assertEquals(server2.disconnected, false);
-		assertEquals(server2.connected, true);
+		assertEquals(server2.isDisconnected, false);
+		assertEquals(server2.hasConnection, true);
 		assertEquals(server2.port, 501);
 		assertEquals(server2.ipAddress, "123.11.413");
 	}

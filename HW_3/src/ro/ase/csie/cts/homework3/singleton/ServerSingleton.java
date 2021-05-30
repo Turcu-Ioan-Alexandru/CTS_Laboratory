@@ -9,15 +9,15 @@ public class ServerSingleton implements ServerInterface{
 	private String ipAddress;
 	private int port;
 	private int maxConnections;
-	private boolean connect;
-	private boolean disconnect;
+	private boolean hasConnection;
+	private boolean isDisconnected;
 	
 	private ServerSingleton(String ipAddress, int port, int maxConnections, boolean connect, boolean disconnect) {
 		this.ipAddress = ipAddress;
 		this.port = port;
 		this.maxConnections = maxConnections;
-		this.connect = connect;
-		this.disconnect = disconnect;
+		this.hasConnection = connect;
+		this.isDisconnected = disconnect;
 	}
 	
 	@Override
@@ -37,16 +37,16 @@ public class ServerSingleton implements ServerInterface{
 
 	@Override
 	public boolean connect() {
-		this.connect = true;
-		this.disconnect = false;
-		return this.connect;
+		this.hasConnection = true;
+		this.isDisconnected = false;
+		return this.hasConnection;
 	}
 
 	@Override
 	public boolean disconnect() {
-		this.connect = false;
-		this.disconnect = true;
-		return this.disconnect;
+		this.hasConnection = false;
+		this.isDisconnected = true;
+		return this.isDisconnected;
 	}
 	
 	public static ServerSingleton getInstance() {

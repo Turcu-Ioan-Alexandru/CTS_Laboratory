@@ -1,8 +1,7 @@
-package ro.ase.csie.cts.homework3.singleton;
+package ro.ase.csie.cts.homework3.testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -10,11 +9,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ro.ase.csie.cts.homework3.prototype.ServerPrototype;
 
-class TestSingleton {
-
-	ServerSingleton server1 = null;
-	ServerSingleton server2 = null;
+class TestPrototype {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -38,18 +35,17 @@ class TestSingleton {
 		fail("Not yet implemented");
 	}
 
-	
 	@Test
-	public void TestSingleton() {
-		server1 = ServerSingleton.getInstance();
-		server2 = ServerSingleton.getInstance();
-		Assert.assertEquals("These 2 objects are the same", server1, server2);
+	public void TestPrototype() throws CloneNotSupportedException {
+		ServerPrototype server1 = new ServerPrototype("143.122.222", 497, 100, true, false);
+		ServerPrototype server2 = (ServerPrototype) server1.clone();
+		assertEquals(server1.getIpAddress(), server2.getIpAddress());
 	}
 	
 	@Test
-	public void TestDisonnect() {
-		server1 = ServerSingleton.getInstance();
-		server1.disconnect();
-		assertEquals(server1.disconnect(), true);
+	public void TestConnect() {
+		ServerPrototype server3 = new ServerPrototype("143.122.222", 497, 100, false, true);
+		server3.connect();
+		assertEquals(server3.getConnectStatus(), true);
 	}
 }
