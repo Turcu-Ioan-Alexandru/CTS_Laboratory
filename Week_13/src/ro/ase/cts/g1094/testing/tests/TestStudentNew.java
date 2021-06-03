@@ -100,4 +100,38 @@ class TestStudentNew {
 		
 		assertArrayEquals(grades, studentGrades);
 	}
-}
+	
+	@Test
+	public void testGetGradesAveragePerformance() throws WrongGradesException {
+		ArrayList<Integer> grades = new ArrayList<Integer>();
+		int noGrades = (int) 1e6;
+		Random random = new Random();
+		for(int i = 0; i < noGrades; i++) {
+			grades.add(random.nextInt(Student.MAX_GRADE) + 1);
+		}
+		
+		student.setGrades(grades);
+		
+		long tStart = System.currentTimeMillis();
+		student.getGradesAverage();
+		long tFinish = System.currentTimeMillis();
+		long delta = tFinish - tStart;
+		long performance = 20;
+		if(delta <= performance) {
+			assertTrue(true);
+		} else {
+			fail("Took to long");
+		}
+	}
+	
+	@Test
+	public void testSetGradesPerformance2() {
+		student.setGrades(performanceGrades);
+		student.getGradesAverage();
+	}
+	
+	@Test
+	public void testGetMinCrossCheck() {
+		
+	}
+	}
