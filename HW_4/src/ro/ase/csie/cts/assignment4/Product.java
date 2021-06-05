@@ -41,13 +41,17 @@ public class Product {
 			this.weeklySoldItems.add(soldItem);
 	}
 	
-	public void setSales(ArrayList<Integer> soldItems) throws WrongSoldItemsException{
+	public void setSales(ArrayList<Integer> soldItems) throws WrongSoldItemsException {
+		if(soldItems == null) {
+			throw new WrongSoldItemsException();
+		}
+		
 		for(Integer item : soldItems) {
 			if(item < 0) {
 				throw new WrongSoldItemsException();
 			}
 		}
-		this.weeklySoldItems = soldItems;
+		this.weeklySoldItems = (ArrayList<Integer>) soldItems.clone();
 	}
 	
 	public void setPrice(float price) throws WrongPriceException {
@@ -79,6 +83,14 @@ public class Product {
 	
 	public int getSoldItems(int index){
 		return this.weeklySoldItems.get(index);
+	}
+	
+	public int getNoSales() {
+		return this.weeklySoldItems.size();
+	}
+	
+	public ArrayList<Integer> getAllWeeks() {
+		return this.weeklySoldItems;
 	}
 	
 	/*

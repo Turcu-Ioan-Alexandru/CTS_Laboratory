@@ -87,8 +87,30 @@ public class TestProduct {
 		product.setSales(soldItemsPerWeek);
 	}
 	
+	@Test(expected = WrongSoldItemsException.class)
+	public void testExistenceArrayListConstructor() throws WrongSoldItemsException{
+		ArrayList<Integer> soldItemsNull = null;
+		product.setSales(soldItemsNull);
+	}
+	
 	@Test
-	public void testExistenceArrayList() {
-		ArrayList<Integer> nullArray = null;
+	public void testSetSoldItemsReference() throws WrongSoldItemsException {
+		int[] newItems = new int[] {9,9,10};
+		
+		ArrayList<Integer> refItems = new ArrayList<>();
+		for(int item : newItems) {
+			refItems.add(item);
+		}
+		
+		product.setSales(refItems);
+		
+		refItems.set(0, 299);
+		
+		int[] productSales = new int[product.getNoSales()];
+		for(int i = 0; i < product.getNoSales(); i++) {
+			productSales[i] = product.getSoldItems(i);
+		}
+		
+		assertArrayEquals(newItems, productSales);
 	}
 }
