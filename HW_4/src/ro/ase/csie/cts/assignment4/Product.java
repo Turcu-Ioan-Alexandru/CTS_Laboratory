@@ -1,6 +1,7 @@
 package ro.ase.csie.cts.assignment4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import ro.ase.csie.cts.assignment4.exceptions.WrongNameException;
 import ro.ase.csie.cts.assignment4.exceptions.WrongPriceException;
@@ -77,6 +78,19 @@ public class Product {
 		return this.price;
 	}
 	
+	public float getAverageSales() {
+		if(this.weeklySoldItems == null || this.weeklySoldItems.size() == 0) {
+			return 0;
+		}
+		
+		float totalSales = 0;
+		for(int weekSales : this.weeklySoldItems) {
+			 totalSales += weekSales;
+		}
+		
+		return totalSales/this.weeklySoldItems.size();
+	}
+	
 	public void addWeek(int soldItems){
 		weeklySoldItems.add(soldItems);
 	}
@@ -101,8 +115,8 @@ public class Product {
 	 */
 	public int getNoWeeksAboveLimit(int minLimit){
 		int noWeeks = 0;
-		for(Integer n: this.weeklySoldItems)
-			if(n >= minLimit) {
+		for(Integer week: this.weeklySoldItems)
+			if(week > minLimit) {
 				noWeeks++;
 			}
 		return noWeeks;
@@ -117,7 +131,7 @@ public class Product {
 	public int getPercentOfBadWeeks(int minLimit){
 		float noBadWeeks = 0;
 		for(int soldItems: this.weeklySoldItems)
-			if(soldItems > minLimit) {
+			if(soldItems < minLimit) {
 				noBadWeeks += 1;
 			}
 		return (int) (100 * noBadWeeks / this.weeklySoldItems.size());
@@ -134,10 +148,9 @@ public class Product {
 	
 	public ArrayList<Integer> getWeeksIndexWithMaxSales(){
 		ArrayList<Integer> maxWeeks = new ArrayList<>();
-		int max = this.weeklySoldItems.get(0);
-		
+		int max = Collections.max(this.weeklySoldItems);
 		for(int i = 0; i < this.weeklySoldItems.size(); i++) {
-			if(this.weeklySoldItems.get(i) > max) {
+			if(this.weeklySoldItems.get(i) >= max) {
 				maxWeeks.add(i);
 			}
 		}

@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import ro.ase.csie.cts.assignment4.Product;
+import ro.ase.csie.cts.assignment4.categories.ImportantTest;
 import ro.ase.csie.cts.assignment4.exceptions.WrongNameException;
 import ro.ase.csie.cts.assignment4.exceptions.WrongPriceException;
 import ro.ase.csie.cts.assignment4.exceptions.WrongSoldItemsException;
@@ -15,6 +16,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class TestProduct {
 
@@ -87,6 +89,7 @@ public class TestProduct {
 		product.setSales(soldItemsPerWeek);
 	}
 	
+	@Category(ImportantTest.class)
 	@Test(expected = WrongSoldItemsException.class)
 	public void testExistenceArrayListConstructor() throws WrongSoldItemsException{
 		ArrayList<Integer> soldItemsNull = null;

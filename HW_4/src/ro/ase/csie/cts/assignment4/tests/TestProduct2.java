@@ -3,6 +3,7 @@ package ro.ase.csie.cts.assignment4.tests;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -10,8 +11,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import ro.ase.csie.cts.assignment4.Product;
+import ro.ase.csie.cts.assignment4.categories.ImportantTest;
 import ro.ase.csie.cts.assignment4.exceptions.WrongSoldItemsException;
 
 public class TestProduct2 {
@@ -51,6 +54,7 @@ public class TestProduct2 {
 		fail("Not yet implemented");
 	}
 
+	@Category(ImportantTest.class)
 	@Test
 	public void testRightAddWeeks() {
 		int newWeek = 49;
@@ -69,6 +73,7 @@ public class TestProduct2 {
 		assertEquals(newWeekAdded, product.getSoldItems(index));
 	}
 	
+	@Category(ImportantTest.class)
 	@Test 
 	public void testRightWeeksAboveLimit() {
 		ArrayList<Integer> noCarsSold = new ArrayList<Integer>();
@@ -91,6 +96,7 @@ public class TestProduct2 {
 		assertEquals(expectedSalesAboveLimit, actualSalesAboveLimit);
 	}
 	
+	@Category(ImportantTest.class)
 	@Test
 	public void testCardinalityWeeksAboveLimitOne() throws WrongSoldItemsException {
 		ArrayList<Integer> noProductsSold = new ArrayList<Integer>();
@@ -101,5 +107,49 @@ public class TestProduct2 {
 		int actualSalesAboveLimit = product.getNoWeeksAboveLimit(100);
 		
 		assertEquals(expectedSalesAboveLimit, actualSalesAboveLimit);
+	}
+	
+	@Test
+	public void testWeeksAboveLimitOrderingAsc() throws WrongSoldItemsException{
+		ArrayList<Integer> newSales = new ArrayList<>();
+		
+		for(int i = 6; i < 10; i++) {
+			newSales.add(i);
+		}
+		
+		product.setSales(newSales);
+		
+		float expectedAverage = 7.5f;
+		float actualAverage = product.getAverageSales();
+		
+		assertEquals(expectedAverage, actualAverage, 0);
+	}
+	
+	@Test
+	public void testWeeksAboveLimitOrderingDesc() throws WrongSoldItemsException{
+		ArrayList<Integer> newSales = new ArrayList<>();
+		
+		for(int i = 9; i > 5; i--) {
+			newSales.add(i);
+		}
+		
+		product.setSales(newSales);
+		
+		float expectedAverage = 7.5f;
+		float actualAverage = product.getAverageSales();
+		
+		assertEquals(expectedAverage, actualAverage, 0);
+	}
+	
+	@Test(timeout = 3000)
+	public void testPerformanceWeeksAboveLimit() throws WrongSoldItemsException {
+		Random random = new Random();
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < 1001; i++) {
+			list.add(i + 1);
+		}
+		
+		product.setSales(list);
+		assertEquals(3, product.getNoWeeksAboveLimit(998));
 	}
 }
